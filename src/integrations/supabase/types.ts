@@ -14,7 +14,200 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      assets: {
+        Row: {
+          category: string
+          created_at: string
+          criticality: string
+          id: string
+          name: string
+          user_id: string
+          value_usd: number
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          criticality?: string
+          id?: string
+          name: string
+          user_id: string
+          value_usd?: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          criticality?: string
+          id?: string
+          name?: string
+          user_id?: string
+          value_usd?: number
+        }
+        Relationships: []
+      }
+      investments: {
+        Row: {
+          category: string
+          cost_usd: number
+          created_at: string
+          id: string
+          name: string
+          risk_reduction_pct: number
+          status: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          cost_usd?: number
+          created_at?: string
+          id?: string
+          name: string
+          risk_reduction_pct?: number
+          status?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          cost_usd?: number
+          created_at?: string
+          id?: string
+          name?: string
+          risk_reduction_pct?: number
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          annual_revenue: number
+          created_at: string
+          email: string | null
+          id: string
+          industry: string
+          org_name: string
+        }
+        Insert: {
+          annual_revenue?: number
+          created_at?: string
+          email?: string | null
+          id: string
+          industry?: string
+          org_name?: string
+        }
+        Update: {
+          annual_revenue?: number
+          created_at?: string
+          email?: string | null
+          id?: string
+          industry?: string
+          org_name?: string
+        }
+        Relationships: []
+      }
+      reports: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          summary: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          id?: string
+          summary?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          summary?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      threats: {
+        Row: {
+          category: string
+          detected_at: string
+          id: string
+          likelihood: number
+          name: string
+          severity: number
+          status: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          detected_at?: string
+          id?: string
+          likelihood?: number
+          name: string
+          severity?: number
+          status?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          detected_at?: string
+          id?: string
+          likelihood?: number
+          name?: string
+          severity?: number
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      vulnerabilities: {
+        Row: {
+          asset_id: string | null
+          cve_id: string | null
+          cvss: number
+          discovered_at: string
+          id: string
+          remediation_cost_usd: number
+          status: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          asset_id?: string | null
+          cve_id?: string | null
+          cvss?: number
+          discovered_at?: string
+          id?: string
+          remediation_cost_usd?: number
+          status?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          asset_id?: string | null
+          cve_id?: string | null
+          cvss?: number
+          discovered_at?: string
+          id?: string
+          remediation_cost_usd?: number
+          status?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vulnerabilities_asset_id_fkey"
+            columns: ["asset_id"]
+            isOneToOne: false
+            referencedRelation: "assets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
