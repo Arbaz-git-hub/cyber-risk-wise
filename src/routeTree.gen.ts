@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as InvestmentsRouteImport } from './routes/investments'
+import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ThreatsRouteImport } from './routes/threats'
 import { Route as VulnerabilitiesRouteImport } from './routes/vulnerabilities'
 
@@ -30,6 +32,16 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvestmentsRoute = InvestmentsRouteImport.update({
+  id: '/investments',
+  path: '/investments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThreatsRoute = ThreatsRouteImport.update({
   id: '/threats',
   path: '/threats',
@@ -45,6 +57,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
+  '/investments': typeof InvestmentsRoute
+  '/reports': typeof ReportsRoute
   '/threats': typeof ThreatsRoute
   '/vulnerabilities': typeof VulnerabilitiesRoute
 }
@@ -52,6 +66,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
+  '/investments': typeof InvestmentsRoute
+  '/reports': typeof ReportsRoute
   '/threats': typeof ThreatsRoute
   '/vulnerabilities': typeof VulnerabilitiesRoute
 }
@@ -60,22 +76,47 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof DashboardRoute
+  '/investments': typeof InvestmentsRoute
+  '/reports': typeof ReportsRoute
   '/threats': typeof ThreatsRoute
   '/vulnerabilities': typeof VulnerabilitiesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/dashboard' | '/threats' | '/vulnerabilities'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/investments'
+    | '/reports'
+    | '/threats'
+    | '/vulnerabilities'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/dashboard' | '/threats' | '/vulnerabilities'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/investments'
+    | '/reports'
+    | '/threats'
+    | '/vulnerabilities'
   id:
-    '__root__' | '/' | '/auth' | '/dashboard' | '/threats' | '/vulnerabilities'
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/investments'
+    | '/reports'
+    | '/threats'
+    | '/vulnerabilities'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   DashboardRoute: typeof DashboardRoute
+  InvestmentsRoute: typeof InvestmentsRoute
+  ReportsRoute: typeof ReportsRoute
   ThreatsRoute: typeof ThreatsRoute
   VulnerabilitiesRoute: typeof VulnerabilitiesRoute
 }
@@ -103,6 +144,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/investments': {
+      id: '/investments'
+      path: '/investments'
+      fullPath: '/investments'
+      preLoaderRoute: typeof InvestmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/threats': {
       id: '/threats'
       path: '/threats'
@@ -124,6 +179,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   DashboardRoute: DashboardRoute,
+  InvestmentsRoute: InvestmentsRoute,
+  ReportsRoute: ReportsRoute,
   ThreatsRoute: ThreatsRoute,
   VulnerabilitiesRoute: VulnerabilitiesRoute,
 }
