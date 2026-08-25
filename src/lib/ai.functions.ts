@@ -43,11 +43,11 @@ export const generateRecommendations = createServerFn({ method: "POST" })
     const key = process.env["LOVABLE_API_KEY"];
     if (!key) throw new Error("AI is not configured for this project.");
 
-    const { generateText, Output } = await import("ai");
+    const { streamText, Output } = await import("ai");
     const { createLovableAiGatewayProvider } = await import("./ai-gateway.server");
     const gateway = createLovableAiGatewayProvider(key);
 
-    const result = await generateText({
+    const result = streamText({
       model: gateway("google/gemini-3.7-flash"),
       system:
         "You are a FAIR-based cyber risk quantification analyst. Given a risk snapshot, produce a crisp, " +
@@ -58,6 +58,7 @@ export const generateRecommendations = createServerFn({ method: "POST" })
     });
 
     return await result.output;
+
   });
 
 const ReportSchema = z.object({
