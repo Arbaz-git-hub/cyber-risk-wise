@@ -76,7 +76,7 @@ function AuthPage() {
   };
 
   return (
-    <div className="bg-grid flex min-h-screen items-center justify-center px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         <Link to="/" className="mb-6 flex items-center justify-center gap-2">
           <ShieldAlert className="size-6 text-primary" />
