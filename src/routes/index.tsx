@@ -82,20 +82,20 @@ function Landing() {
         </div>
       </header>
 
-      <section className="bg-grid relative overflow-hidden border-b border-border px-6 py-24">
+      <section className="border-b border-border px-6 py-28 sm:py-32">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">
-            <Sparkles className="size-3.5" /> AI-powered cyber risk quantification
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs text-muted-foreground">
+            <Sparkles className="size-3.5 text-primary" /> AI-powered cyber risk quantification
           </span>
-          <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl">
-            Know your cyber risk <span className="text-gradient">in dollars</span>, not colors
+          <h1 className="mt-8 text-4xl font-semibold leading-[1.15] tracking-tight sm:text-5xl">
+            Know your cyber risk <span className="text-primary">in dollars</span>, not colors
           </h1>
-          <p className="mt-5 text-base text-muted-foreground sm:text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             CyberRisk AI continuously quantifies your exposure, models loss scenarios, and optimizes
             where every security dollar should go — with an audit trail your board can read.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg" className="glow gap-2">
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Button asChild size="lg" className="gap-2">
               <Link to="/auth">
                 Launch the dashboard <ArrowRight className="size-4" />
               </Link>
@@ -104,14 +104,14 @@ function Landing() {
               <Link to="/auth">Create an account</Link>
             </Button>
           </div>
-          <div className="mono-nums mt-12 grid grid-cols-3 gap-4 text-center">
+          <div className="mono-nums mx-auto mt-16 grid max-w-lg grid-cols-3 divide-x divide-border border-y border-border py-6 text-center">
             {[
               ["ALE", "Annualized loss"],
               ["FAIR", "Quantification model"],
               ["ROI", "Budget optimization"],
             ].map(([k, v]) => (
-              <div key={k} className="panel rounded-lg p-4">
-                <p className="text-xl font-semibold text-primary">{k}</p>
+              <div key={k}>
+                <p className="text-lg font-semibold text-primary">{k}</p>
                 <p className="mt-1 text-xs text-muted-foreground">{v}</p>
               </div>
             ))}
@@ -119,20 +119,20 @@ function Landing() {
         </div>
       </section>
 
-      <section className="px-6 py-20">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-2xl font-semibold">Everything a modern risk program needs</h2>
-          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+          <h2 className="text-2xl font-semibold tracking-tight">Everything a modern risk program needs</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             One workspace for asset exposure, threat intelligence, vulnerability posture, control
             effectiveness and executive reporting.
           </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map(({ icon: Icon, title, body }) => (
-              <Card key={title} className="panel gap-2 p-5">
+              <div key={title} className="bg-card p-6 transition-colors hover:bg-secondary/50">
                 <Icon className="size-5 text-primary" />
-                <h3 className="text-sm font-semibold">{title}</h3>
-                <p className="text-sm text-muted-foreground">{body}</p>
-              </Card>
+                <h3 className="mt-4 text-sm font-semibold">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </div>
             ))}
           </div>
         </div>
