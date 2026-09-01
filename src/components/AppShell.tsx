@@ -49,20 +49,19 @@ export function AppShell({
 
   return (
     <div className="flex min-h-screen bg-background">
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-sidebar-border bg-sidebar p-4 lg:flex">
-        <Link to="/" className="mb-8 flex items-center gap-2 px-2">
-          <ShieldAlert className="size-6 text-primary" />
-          <span className="text-base font-semibold tracking-tight">CyberRisk AI</span>
+      <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r border-sidebar-border bg-sidebar p-3 lg:flex">
+        <Link to="/" className="mb-6 flex items-center gap-2 px-2 py-1">
+          <ShieldAlert className="size-5 text-primary" />
+          <span className="text-sm font-semibold tracking-tight">CyberRisk AI</span>
         </Link>
-        <nav className="flex flex-1 flex-col gap-1">
+        <nav className="flex flex-1 flex-col gap-0.5">
           {NAV.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
               to={to}
-              className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-sidebar-foreground/75 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm text-sidebar-foreground/70 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               activeProps={{
-                className:
-                  "bg-sidebar-accent text-sidebar-accent-foreground font-medium border-l-2 border-primary",
+                className: "bg-sidebar-accent text-sidebar-accent-foreground font-medium",
               }}
             >
               <Icon className="size-4" />
