@@ -44,10 +44,10 @@ export function StatCard({
   token?: string;
 }) {
   return (
-    <Card className="panel gap-0 p-4">
+    <Card className="panel gap-0 p-5">
       <div className="flex items-center justify-between">
-        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</p>
-        {icon ? <span className="text-primary">{icon}</span> : null}
+        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</p>
+        {icon ? <span className="text-muted-foreground/70">{icon}</span> : null}
       </div>
       <p className={cn("mono-nums mt-2 text-2xl font-semibold", token ? TOKEN_TEXT[token] : undefined)}>
         {value}
